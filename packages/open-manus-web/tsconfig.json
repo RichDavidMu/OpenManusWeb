@@ -20,6 +20,6 @@
         }
     },
 
-    "include": ["src"],
+    "include": ["lib"],
     "exclude": ["node_modules", "dist"]
 }
