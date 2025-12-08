@@ -1,0 +1,24 @@
+{
+  "name": "open-manus-web",
+  "version": "0.0.1",
+  "description": "typescript version of OpenManus",
+  "homepage": "https://github.com/RichDavidMu/OpenManusWeb#readme",
+  "bugs": {
+    "url": "https://github.com/RichDavidMu/OpenManusWeb/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichDavidMu/OpenManusWeb.git"
+  },
+  "license": "Apache-2.0",
+  "author": "RichDavidMu",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
