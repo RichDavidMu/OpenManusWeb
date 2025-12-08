@@ -12,14 +12,16 @@
         "allowSyntheticDefaultImports": true,
         "isolatedModules": true,
         "allowJs": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "noEmit": false,
         "outDir": "dist",
         "baseUrl": ".",
         "paths": {
-            "@/*": ["lib/*"]
+            "@/*": ["src/*"]
         }
     },
 
-    "include": ["lib"],
+    "include": ["src"],
     "exclude": ["node_modules", "dist"]
 }

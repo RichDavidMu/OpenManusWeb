@@ -15,7 +15,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "simple-git-hooks"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -27,8 +27,23 @@
     "eslint-plugin-regexp": "^2.10.0",
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
+    "simple-git-hooks": "^2.13.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.1"
+  },
+  "lint-staged": {
+      "*": [
+          "prettier --write --cache --ignore-unknown"
+      ],
+      "packages/*/{src,types}/**/*.ts": [
+          "eslint --cache --fix"
+      ],
+      "packages/**/*.d.ts": [
+          "eslint --cache --fix"
+      ],
+      "playground/**/__tests__/**/*.ts": [
+          "eslint --cache --fix"
+      ]
   }
 }

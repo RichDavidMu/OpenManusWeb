@@ -35,6 +35,9 @@ importers:
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
+      simple-git-hooks:
+        specifier: ^2.13.1
+        version: 2.13.1
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -46,6 +49,10 @@ importers:
         version: 8.48.1(eslint@9.39.1)(typescript@5.9.3)
 
   packages/open-manus-web:
+    dependencies:
+      tiktoken:
+        specifier: ^1.0.22
+        version: 1.0.22
     devDependencies:
       tsx:
         specifier: ^4.21.0
@@ -871,6 +878,10 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  simple-git-hooks@2.13.1:
+    resolution: {integrity: sha512-WszCLXwT4h2k1ufIXAgsbiTOazqqevFCIncOuUBZJ91DdvWcC5+OFkluWRQPrcuSYd8fjq+o2y1QfWqYMoAToQ==}
+    hasBin: true
+
   stable-hash-x@0.2.0:
     resolution: {integrity: sha512-o3yWv49B/o4QZk5ZcsALc6t0+eCelPc44zZsLtCQnZPDwFpDYSWcDnrv2TtMmMbQ7uKo3J0HTURCqckw23czNQ==}
     engines: {node: '>=12.0.0'}
@@ -890,6 +901,9 @@ packages:
   tapable@2.3.0:
     resolution: {integrity: sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==}
     engines: {node: '>=6'}
+
+  tiktoken@1.0.22:
+    resolution: {integrity: sha512-PKvy1rVF1RibfF3JlXBSP0Jrcw2uq3yXdgcEXtKTYn3QJ/cBRBHDnrJ5jHky+MENZ6DIPwNUGWpkVx+7joCpNA==}
 
   tinyglobby@0.2.15:
     resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}
@@ -1694,6 +1708,8 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
+  simple-git-hooks@2.13.1: {}
+
   stable-hash-x@0.2.0: {}
 
   strip-json-comments@3.1.1: {}
@@ -1707,6 +1723,8 @@ snapshots:
       '@pkgr/core': 0.2.9
 
   tapable@2.3.0: {}
+
+  tiktoken@1.0.22: {}
 
   tinyglobby@0.2.15:
     dependencies:
