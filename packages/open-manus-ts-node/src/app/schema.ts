@@ -1,3 +1,5 @@
+import type { PropertiesOnly } from '@/types/utils';
+
 export const Role = {
   SYSTEM: 'system',
   USER: 'user',
@@ -25,18 +27,23 @@ export const AGENT_STATE_VALUES = Array.from(Object.values(AgentState));
 export type AGENT_STATE_TYPE = (typeof AgentState)[keyof typeof AgentState];
 
 export class Function {
-  constructor(
-    public name: string,
-    public args: string,
-  ) {}
+  public name: string;
+  public args: string;
+  constructor({ name, args }: Function) {
+    this.name = name;
+    this.args = args;
+  }
 }
 
 export class ToolCall {
-  constructor(
-    public id: string,
-    public type: string = 'function',
-    public fn: Function,
-  ) {}
+  public id: string;
+  public type: string = 'function';
+  public fn: Function;
+  constructor({ id, type = 'function', fn }: ToolCall) {
+    this.id = id;
+    this.type = type;
+    this.fn = fn;
+  }
 }
 
 export class Message {
@@ -54,7 +61,7 @@ export class Message {
     tool_calls,
     base64_image,
     tool_call_id,
-  }: Pick<Message, 'role' | 'content' | 'tool_calls' | 'name' | 'base64_image' | 'tool_call_id'>) {
+  }: PropertiesOnly<Message>) {
     this.role = role;
     this.content = content;
     this.name = name;
@@ -80,10 +87,7 @@ export class Message {
     }
   }
   public to_dict() {
-    const message: Pick<
-      Message,
-      'role' | 'content' | 'tool_call_id' | 'tool_calls' | 'base64_image' | 'name'
-    > = { role: this.role };
+    const message: PropertiesOnly<Message> = { role: this.role };
     if (this.content) message.content = this.content;
 
     if (this.tool_calls) message.tool_calls = this.tool_calls;
@@ -121,13 +125,8 @@ export class Message {
       base64_image,
     });
   }
-  static from_tool_calls({
-    tool_calls,
-    content,
-    base64_image,
-    ...extra
-  }: Partial<Message> & Pick<Message, 'tool_calls' | 'content' | 'base64_image'>) {
-    return new Message({ role: Role.TOOL, content, tool_calls, base64_image, ...extra });
+  static from_tool_calls(params: Omit<PropertiesOnly<Message>, 'role'>): Message {
+    return new Message({ role: Role.TOOL, ...params });
   }
 }
 

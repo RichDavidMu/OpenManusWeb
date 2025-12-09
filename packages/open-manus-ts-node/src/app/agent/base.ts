@@ -1,6 +1,7 @@
 import { LLM } from '@/app/llm';
 import type { AGENT_STATE_TYPE, ROLE_TYPE } from '@/app/schema';
 import { AGENT_STATE_VALUES, AgentState, Memory, Message, Role } from '@/app/schema';
+import type { PropertiesOnly } from '@/types/utils';
 
 export abstract class BaseAgent {
   // Unique name of the agent
@@ -39,7 +40,7 @@ export abstract class BaseAgent {
     state = AgentState.IDLE,
     max_steps = 10,
     current_step = 0,
-  }: Partial<BaseAgent> & { name: string }) {
+  }: PropertiesOnly<BaseAgent>) {
     this.name = name;
     this.description = description;
     this.system_prompt = system_prompt;

@@ -8,9 +8,6 @@ import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
-// Some rules work better with typechecking enabled, but as enabling it is slow,
-// we only do so when linting in IDEs for now. If you want to lint with typechecking
-// explicitly, set this to `true` manually.
 export default defineConfig(
   {
     ignores: ['**/dist/**'],
@@ -101,10 +98,7 @@ export default defineConfig(
         'warn',
         { allowArgumentsExplicitlyTypedAsAny: true },
       ],
-      '@typescript-eslint/no-empty-function': [
-        'error',
-        { allow: ['arrowFunctions'] },
-      ],
+      '@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }],
       '@typescript-eslint/no-empty-object-type': [
         'error',
         { allowInterfaces: 'with-single-extends' },
@@ -142,14 +136,7 @@ export default defineConfig(
       'import-x/order': [
         'error',
         {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
-          ],
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
         },
       ],
       'sort-imports': [
@@ -198,15 +185,7 @@ export default defineConfig(
   },
   {
     name: 'disables/typechecking',
-    files: [
-      '**/*.js',
-      '**/*.mjs',
-      '**/*.cjs',
-      '**/*.d.ts',
-      '**/*.d.cts',
-      'docs/**',
-      'scripts/**',
-    ],
+    files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.d.ts', '**/*.d.cts', 'docs/**', 'scripts/**'],
     languageOptions: {
       parserOptions: {
         project: false,
