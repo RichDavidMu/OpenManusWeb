@@ -1,0 +1,8 @@
+export default {
+  mcpServers: {
+    server1: {
+      type: 'sse',
+      url: 'http://localhost:8000/sse',
+    },
+  },
+};

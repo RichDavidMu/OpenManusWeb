@@ -1,6 +1,6 @@
-import { LLM } from '@/llm';
-import type { AGENT_STATE_TYPE, ROLE_TYPE } from '@/schema';
-import { AGENT_STATE_VALUES, AgentState, Memory, Message, Role } from '@/schema';
+import { LLM } from '@/app/llm';
+import type { AGENT_STATE_TYPE, ROLE_TYPE } from '@/app/schema';
+import { AGENT_STATE_VALUES, AgentState, Memory, Message, Role } from '@/app/schema';
 
 export abstract class BaseAgent {
   // Unique name of the agent
