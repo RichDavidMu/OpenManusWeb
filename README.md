@@ -1,2 +1,3 @@
 # OpenManusWeb
-typescript version of OpenManus
+
+typescript version of OpenManus, aimed to be used in a node environment. developing...
