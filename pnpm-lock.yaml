@@ -53,7 +53,7 @@ importers:
         specifier: ^8.48.1
         version: 8.48.1(eslint@9.39.1)(typescript@5.9.3)
 
-  packages/open-manus-web:
+  packages/open-manus-ts-node:
     dependencies:
       openai:
         specifier: ^6.10.0

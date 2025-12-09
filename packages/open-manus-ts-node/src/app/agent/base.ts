@@ -3,6 +3,8 @@ import type { AGENT_STATE_TYPE, ROLE_TYPE } from '@/app/schema';
 import { AGENT_STATE_VALUES, AgentState, Memory, Message, Role } from '@/app/schema';
 import type { PropertiesOnly } from '@/types/utils';
 
+type BaseAgentParams = Partial<Omit<PropertiesOnly<BaseAgent>, 'messages'>>;
+
 export abstract class BaseAgent {
   // Unique name of the agent
   name: string;
@@ -24,14 +26,14 @@ export abstract class BaseAgent {
   max_steps: number;
   current_step: number;
 
-  duplicate_threshold: number = 2;
+  duplicate_threshold: number;
 
-  config = {
+  private config = {
     arbitrary_types_allowed: true,
     extra: 'allow',
   };
   constructor({
-    name,
+    name = '',
     description,
     system_prompt,
     next_step_prompt,
@@ -40,7 +42,8 @@ export abstract class BaseAgent {
     state = AgentState.IDLE,
     max_steps = 10,
     current_step = 0,
-  }: PropertiesOnly<BaseAgent>) {
+    duplicate_threshold = 2,
+  }: BaseAgentParams) {
     this.name = name;
     this.description = description;
     this.system_prompt = system_prompt;
@@ -52,6 +55,7 @@ export abstract class BaseAgent {
 
     this.max_steps = max_steps;
     this.current_step = current_step;
+    this.duplicate_threshold = duplicate_threshold;
 
     this.initialize_agent();
   }
